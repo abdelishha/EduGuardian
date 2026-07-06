@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduGuardian — AI Study Companion & Wellness Advisor</title>
+  <meta name="description" content="EduGuardian: Your 24/7 AI-powered study companion and mental wellness advisor. Powered by a multi-agent AI system built with Google ADK." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       SIDEBAR
+  ============================================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text">
+          <span class="logo-name">EduGuardian</span>
+          <span class="logo-tag">AI Study Companion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">YOUR TEAM</p>
+      <div class="agent-card active" id="agent-all">
+        <div class="agent-icon">🤖</div>
+        <div class="agent-info">
+          <span class="agent-name">EduGuardian</span>
+          <span class="agent-role">Smart Orchestrator</span>
+        </div>
+        <span class="agent-status online"></span>
+      </div>
+      <div class="agent-card" id="agent-tutor">
+        <div class="agent-icon">📚</div>
+        <div class="agent-info">
+          <span class="agent-name">Tutor Agent</span>
+          <span class="agent-role">Academic Expert</span>
+        </div>
+        <span class="agent-status online"></span>
+      </div>
+      <div class="agent-card" id="agent-wellness">
+        <div class="agent-icon">🧘</div>
+        <div class="agent-info">
+          <span class="agent-name">Wellness Agent</span>
+          <span class="agent-role">Mental Health Support</span>
+        </div>
+        <span class="agent-status online"></span>
+      </div>
+      <div class="agent-card" id="agent-planner">
+        <div class="agent-icon">📅</div>
+        <div class="agent-info">
+          <span class="agent-name">Study Planner</span>
+          <span class="agent-role">Schedule Coach</span>
+        </div>
+        <span class="agent-status online"></span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">QUICK STARTERS</p>
+      <button class="quick-btn" id="q-explain">💡 Explain a topic</button>
+      <button class="quick-btn" id="q-quiz">🧠 Quiz me!</button>
+      <button class="quick-btn" id="q-plan">📅 Make a study plan</button>
+      <button class="quick-btn" id="q-stressed">😰 I'm stressed about exams</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="reset-btn" id="reset-btn">🔄 New Conversation</button>
+      <p class="footer-note">Powered by Google ADK + MCP</p>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN CHAT AREA
+  ============================================================ -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-btn" id="menu-btn">☰</button>
+        <div class="topbar-title">
+          <h1>EduGuardian</h1>
+          <span class="topbar-subtitle">4-Agent AI System • Multi-Agent • MCP • Safety-First</span>
+        </div>
+      </div>
+      <div class="topbar-badges">
+        <span class="badge badge-green">🟢 Live</span>
+        <span class="badge badge-blue">ADK</span>
+        <span class="badge badge-purple">MCP</span>
+      </div>
+    </header>
+
+    <!-- Messages Area -->
+    <div class="messages-area" id="messages-area">
+
+      <!-- Welcome Card -->
+      <div class="welcome-card" id="welcome-card">
+        <div class="welcome-emoji">🎓</div>
+        <h2 class="welcome-title">Welcome to EduGuardian</h2>
+        <p class="welcome-desc">
+          Your 24/7 AI-powered study companion and mental wellness advisor.<br />
+          Backed by a team of 4 specialized AI agents working together for you.
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <span class="feature-icon">📚</span>
+            <span class="feature-text">Explains any subject clearly</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🧠</span>
+            <span class="feature-text">Quizzes with progressive hints</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🧘</span>
+            <span class="feature-text">Stress & anxiety support</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">📅</span>
+            <span class="feature-text">Personalized study schedules</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🛡️</span>
+            <span class="feature-text">Safety-first crisis detection</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🔗</span>
+            <span class="feature-text">MCP-powered tool integration</span>
+          </div>
+        </div>
+        <button class="start-btn" id="start-btn">Start Chatting 💬</button>
+      </div>
+
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="typing-indicator hidden" id="typing-indicator">
+      <div class="typing-avatar">🤖</div>
+      <div class="typing-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <span class="typing-text">EduGuardian is thinking...</span>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="user-input"
+          class="chat-input"
+          placeholder="Ask anything — explain a topic, share how you're feeling, or ask for a study plan..."
+          rows="1"
+          maxlength="2000"
+        ></textarea>
+        <button class="send-btn" id="send-btn" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Press Enter to send · Shift+Enter for new line · Your conversations are private</p>
+    </div>
+
+  </main>
+
+  <!-- Agent Routing Toast -->
+  <div class="routing-toast hidden" id="routing-toast">
+    <span class="routing-icon" id="routing-icon">📚</span>
+    <span class="routing-text" id="routing-text">Routing to Tutor Agent...</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
