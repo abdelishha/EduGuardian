@@ -130,13 +130,6 @@ EduGuardian implements **Human-in-the-Loop (HITL)** safety:
 
 ---
 
-## 🔗 Links
-
-- **Live Demo**: [YouTube Demo Video]
-- **GitHub**: [This repository]
-
----
-
 ## 👤 Author
 
 Built with ❤️
