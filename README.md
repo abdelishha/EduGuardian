@@ -41,9 +41,9 @@ Orchestrator Agent (EduGuardian)
 
 ---
 
-## ✅ Course Concepts Demonstrated
+## ✅ Key Features
 
-| Concept | Implementation |
+| Feature | Implementation |
 |---|---|
 | **Multi-Agent System (ADK)** | 4 agents: Orchestrator + 3 specialists |
 | **MCP Server** | Custom FastMCP server with 4 tools |
